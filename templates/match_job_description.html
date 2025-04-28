@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Match Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jobmatchsingle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Match Results</h1>
+
+        <!-- Candidate Name -->
+        <div class="candidate-name">
+            <h2>Candidate: {{ candidate_name }}</h2>
+        </div>
+
+        <!-- <div class="summary-content"> -->
+            <!-- Score Section -->
+            <div class="match-score-container">
+                <h2>Your Resume Match Score:</h2>
+            
+                <!-- Meter Container -->
+                <div class="score-meter">
+                    <div class="meter-segment red"></div>
+                    <div class="meter-segment orange"></div>
+                    <div class="meter-segment yellow"></div>
+                    <div class="meter-segment light-green"></div>
+                    <div class="meter-segment dark-green"></div>
+            
+                    <!-- Arrow -->
+                    <div class="meter-arrow" id="meterArrow"></div>
+                </div>
+            
+                <!-- Score and Evaluation -->
+                <div class="score-display">
+                    <div class="score-percentage" id="scorePercentage">{{ score }}%</div>
+                    <div class="score-evaluation" id="scoreEvaluation"></div>
+                </div>
+            </div>
+
+            <!-- Strengths -->
+            <div class="feedback-section strengths">
+                <h3 class="section-title">Strengths</h3>
+                <ul class="feedback-list">
+                    {% for strength in strengths %}
+                        <li>{{ strength }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Improvements -->
+            <div class="feedback-section improvements">
+                <h3 class="section-title">Areas for Improvement</h3>
+                <ul class="feedback-list">
+                    {% for improvement in improvements %}
+                        <li>{{ improvement }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <a href="{{ url_for('view_dashboard') }}" class="upload-another-link">Go to Dashboard</a>
+
+        <!-- </div> -->
+    </div>
+
+    <script>
+        window.onload = function () {
+            const score = Number("{{ score|int }}");
+            const arrow = document.getElementById('meterArrow');
+            const evaluationDisplay = document.getElementById('scoreEvaluation');
+    
+            // Get meter width after full load
+            const meter = document.querySelector('.score-meter');
+            const meterWidth = meter.offsetWidth;
+    
+            // Calculate position
+            const position = Math.min(meterWidth * (score / 100), meterWidth - 16); // Avoid overflow
+            arrow.style.left = position + 'px';
+    
+            // Evaluation text
+            let evaluation = '';
+            if (score >= 80) {
+                evaluation = 'Excellent Match';
+            } else if (score >= 60) {
+                evaluation = 'Good Match';
+            } else if (score >= 40) {
+                evaluation = 'Average Match';
+            } else if (score >= 20) {
+                evaluation = 'Low Match';
+            } else {
+                evaluation = 'Poor Match';
+            }
+    
+            evaluationDisplay.innerText = evaluation;
+        };
+    </script>
+    
+    
+</body>
+</html>

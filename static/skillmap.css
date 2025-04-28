@@ -1,0 +1,87 @@
+body {
+    font-family: 'Indie Flower', cursive;
+    background: linear-gradient(to bottom right, #fff0f5, #e0c3fc);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 182, 193, 0.3);
+}
+
+.title {
+    font-family: 'Indie Flower', cursive;
+    font-size: 32px;
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #a83279;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px dashed #ff69b4;
+    border-radius: 10px;
+    background-color: #fff0f5;
+    font-size: 16px;
+    font-family: 'Schibsted Grotesk';
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+h2 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    color: #6a0dad;
+    margin-top: 40px;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(to right, #ff85c1, #d4a3ff);
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-family: 'Indie Flower', sans-serif;
+    box-shadow: 2px 2px 8px rgba(255, 182, 193, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ff69b4, #a36bf5);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}

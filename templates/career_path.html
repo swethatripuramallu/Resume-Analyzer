@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='container.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predicted Career Path</h1>
+        <div class="timeline">
+            {% set entries = timeline.split('\n- ') %}
+            {% set index = 0 %}
+            {% for entry in entries %}
+                {% if entry.strip() %}
+                    {% set side = 'left' if index % 2 == 0 else 'right' %}
+                    {% set parts = entry.split('|') %}
+                    {% set year_and_title = parts[0].strip() %}
+                    {% set description = parts[1].strip() if parts | length > 1 else '' %}
+                    <div class="timeline-entry {{ side }}">
+                        <div class="timeline-entry-content" data-description="{{ description }}">
+                            <p><strong>{{ year_and_title }}</strong></p>
+                        </div>
+                    </div>
+                    {% set index = index + 1 %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('view_dashboard') }}" class="submit-button">Go to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Extracted Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resume_styles.css') }}">
+</head>
+<body>
+    <div class="review-container">
+        <h1 class="review-title">Review Extracted Information</h1>
+
+        <div id="loadingSpinner">
+            <img src="/static/spinner.gif" alt="Loading...">
+            <p>Generating summary, please wait...</p>
+        </div>
+
+        <form method="post" id="summaryForm">
+            {% for label, id, value in [
+                ('Name', 'name', name),
+                ('Location', 'location', location),
+                ('Nationality', 'nationality', nationality),
+            ] %}
+            <label for="{{ id }}">{{ label }}:</label>
+            <input type="text" id="{{ id }}" name="{{ id }}" value="{{ value }}">
+            {% endfor %}
+
+            <label for="useful_links">Useful Links:</label>
+            <textarea id="useful_links" name="useful_links">{{ ', '.join(useful_links) }}</textarea>
+
+            <h2>First Most Recent Job</h2>
+            <input type="text" name="job1" placeholder="Organization" value="{{ job1.organization }}">
+            <input type="text" name="job1_title" placeholder="Job Title" value="{{ job1.job_title }}">
+            <input type="text" name="job1_timeline" placeholder="Timeline" value="{{ job1.start_date }} - {{ job1.end_date }}">
+            <textarea name="responsibilities1" placeholder="Responsibilities">{{ ', '.join(job1.responsibilities) }}</textarea>
+
+            <h2>Second Most Recent Job</h2>
+            <input type="text" name="job2" placeholder="Organization" value="{{ job2.organization }}">
+            <input type="text" name="job2_title" placeholder="Job Title" value="{{ job2.job_title }}">
+            <input type="text" name="job2_timeline" placeholder="Timeline" value="{{ job2.start_date }} - {{ job2.end_date }}">
+            <textarea name="responsibilities2" placeholder="Responsibilities">{{ ', '.join(job2.responsibilities) }}</textarea>
+
+            <label for="education">Education:</label>
+            <textarea id="education" name="education">{{ ', '.join(education) }}</textarea>
+
+            <label for="hard_skills">Hard Skills:</label>
+            <textarea id="hard_skills" name="hard_skills">{{ ', '.join(hard_skills) }}</textarea>
+
+            <label for="soft_skills">Soft Skills:</label>
+            <textarea id="soft_skills" name="soft_skills">{{ ', '.join(soft_skills) }}</textarea>
+
+            <label for="tools">Tools:</label>
+            <textarea id="tools" name="tools">{{ ', '.join(tools) }}</textarea>
+
+            <label for="projects">Projects:</label>
+            <textarea id="projects" name="projects">{{ ', '.join(projects) }}</textarea>
+
+            <label for="other_info">Other Relevant Info:</label>
+            <textarea id="other_info" name="other_info">{{ other_info }}</textarea>
+            <!-- Summary Tab Content -->
+            <!-- <div id="summaryTab" class="tab-content active"> -->
+                <button type="submit"
+                        class="submit-button"
+                        onclick="showSpinnerAndScroll()"
+                        formaction="{{ url_for('timeline_dashboard') }}">
+                    Generate Timeline
+                </button>
+
+        </form>
+    </div>
+
+</body>
+</html>

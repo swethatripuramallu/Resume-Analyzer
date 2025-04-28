@@ -1,0 +1,262 @@
+/* === General Styles === */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to bottom right, #ffe6f0, #e0c3fc);
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+.subheading {
+    text-align: center;
+    color: #444;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-top: 40px;
+    text-align: center;
+    color: #222;
+}
+
+/* === Top Navigation === */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 18px;
+    background: linear-gradient(to right, #ffe6f0, #e0c3fc);
+    border-bottom: 2px dashed #ffc0cb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-nav a {
+    font-size: 18px;
+    color: #d63384;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.top-nav a:hover {
+    background-color: #fff0f5;
+    text-decoration: underline;
+}
+
+/* === Resume Grid Layout === */
+.resume-section {
+    padding: 0 20px;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px 40px;
+    margin-top: 30px;
+}
+
+.resume-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    transition: transform 0.2s ease;
+}
+
+.resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.resume-header h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.upload-time {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.resume-actions .btn {
+    flex: 1 1 calc(48%);
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(255, 182, 193, 0.4);
+    background: linear-gradient(to right, #ff85c1, #e0c3fc);
+}
+
+.resume-actions .btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ff69b4, #d4a3ff);
+}
+
+.resume-actions .delete-btn {
+    background: linear-gradient(to right, #f67280, #c94b4b);
+    box-shadow: 2px 2px 8px rgba(255, 100, 120, 0.5);
+}
+
+.resume-actions .delete-btn:hover {
+    background: linear-gradient(to right, #ff4d6d, #a83240);
+}
+
+@media (max-width: 600px) {
+    .resume-actions .btn {
+        flex: 1 1 100%;
+    }
+}
+
+/* === Animation === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Score Meter (Optional) === */
+.score-meter {
+    position: relative;
+    display: flex;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.meter-segment {
+    flex: 1;
+    height: 100%;
+}
+
+.meter-segment.red { background-color: #e53935; }
+.meter-segment.orange { background-color: #fb8c00; }
+.meter-segment.yellow { background-color: #fdd835; }
+.meter-segment.light-green { background-color: #aed581; }
+.meter-segment.dark-green { background-color: #43a047; }
+
+.meter-arrow {
+    position: absolute;
+    top: -20px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #333;
+    transition: left 1s ease-in-out;
+    z-index: 2;
+}
+
+.score-display {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.score-percentage {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.score-evaluation {
+    font-size: 16px;
+    color: #555;
+}
+
+/* === Summary and Feedback Styles === */
+.summary-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
+
+.feedback-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+    border-radius: 8px;
+}
+
+.feedback-section h3 {
+    margin-top: 0;
+}
+
+.feedback-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feedback-list li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 28px;
+}
+
+.feedback-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.feedback-section.improvements {
+    border-left-color: #FF9800;
+}
+
+.feedback-section.improvements li::before {
+    content: "⚠️";
+    color: #FF9800;
+}
+

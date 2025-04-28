@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Map</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='skillmap.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Unified Skill Map Visualization</h1>
+        <canvas id="skillsChart"></canvas>
+        <a href="/" class="submit-button">Go to Dashboard</a>
+    </div>
+
+    <script>
+        const skillsData = {{ skills | tojson }};
+
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(skillsData),
+                datasets: [{
+                    label: 'Skill Frequency',
+                    data: Object.values(skillsData),
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

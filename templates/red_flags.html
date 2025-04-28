@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Extracted Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='redflag.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="feedback-page">
+    <div class="feedback-container">
+      <h1>Resume Analysis - Potential Concerns</h1>
+      <p class="red-flag-status">Red Flags Found: {{ 'Yes' if session.red_flags else 'No' }}</p>
+      <div class="feedback-box">
+        {% for flag in session.red_flags.split('\n') if flag.strip() %}
+          <div class="feedback-item">
+            <div class="emoji">❌</div>
+            <p>{{ flag }}</p>
+          </div>
+        {% endfor %}
+      </div>
+  
+      <a href="/" class="upload-another-link">Upload Another Resume</a>
+      <div class="overall-box">
+      </div>
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,186 @@
+body {
+    font-family: 'Indie Flower', cursive;
+    background: linear-gradient(to bottom right, #fff0f5, #e0c3fc);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 182, 193, 0.3);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #a83279;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px dashed #ff69b4;
+    border-radius: 10px;
+    background-color: #fff0f5;
+    font-size: 16px;
+    font-family: 'Schibsted Grotesk';
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(to right, #ff85c1, #d4a3ff);
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-family: 'Indie Flower', sans-serif;
+    box-shadow: 2px 2px 8px rgba(255, 182, 193, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ff69b4, #a36bf5);
+}
+
+.summary-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+    white-space: pre-wrap; /* This will ensure the new lines are respected */
+}
+
+/* Score Meter */
+.score-meter {
+    position: relative;
+    display: flex;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.meter-segment {
+    flex: 1;
+    height: 100%;
+}
+
+.meter-segment.red {
+    background-color: #fd0570;
+}
+
+.meter-segment.orange {
+    background-color: #fc3e90;
+}
+
+.meter-segment.yellow {
+    background-color: #ff5da2;
+}
+
+.meter-segment.light-green {
+    background-color: #ff7cb5;
+}
+
+.meter-segment.dark-green {
+    background-color: #ffb8d7;
+}
+
+/* Arrow Pointer - Improved */
+.meter-arrow {
+    position: absolute;
+    top: -20px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #333;
+    transition: left 1s ease-in-out;
+    z-index: 2;
+}
+
+
+/* Score display */
+.score-display {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.score-percentage {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.score-evaluation {
+    font-size: 16px;
+    color: #555;
+}
+
+
+.feedback-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+    border-radius: 8px;
+}
+
+.feedback-section h3 {
+    margin-top: 0;
+}
+
+/* Feedback list icons */
+.feedback-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feedback-list li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 28px;
+}
+
+.feedback-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Improvements section specific */
+.feedback-section.improvements {
+    border-left-color: #ff5da2;
+}
+
+.feedback-section.improvements li::before {
+    content: "❌";
+    color: #ff5da2;
+}

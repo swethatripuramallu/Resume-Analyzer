@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='summary.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Generated Summary</h1>
+        <p>{{ summary }}</p>
+        <a href="/" class="submit-button">Go to Dashboard</a>
+    </div>
+</body>
+</html>

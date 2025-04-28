@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Candidates</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='gamestyles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>Top Candidates</h1>
+    <h2>Based on Job Description</h2>
+
+    {% for candidate in candidates %}
+    <div class="candidate-card">
+        <div class="rank-number">{{ loop.index }}</div>
+        <h3>{{ candidate.name }}</h3>
+        <div class="score-percentage">{{ candidate.score }}%</div>
+
+        <div class="skill-badge">
+            <img src="{{ url_for('static', filename='badge2.png') }}" alt="Skill Badge">
+            <span>{{ candidate.skill_badge }}</span>
+        </div>
+        
+    </div>
+    {% endfor %}
+
+    <a href="{{ url_for('view_dashboard') }}" class="try-again-button">Go to Dashboard</a>
+</div>
+
+</body>
+</html>

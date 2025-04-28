@@ -1,0 +1,5 @@
+Flask
+fitz
+PyMuPDF
+python-docx
+openai

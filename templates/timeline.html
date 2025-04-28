@@ -1,0 +1,8 @@
+<div class="sidebar-panel">
+    <h2>📊 Timeline</h2>
+
+    <iframe src="{{ url_for('static', filename='timeline.html') }}" width="100%" height="300" frameborder="0"></iframe>
+    <link rel="stylesheet" href="{{ url_for('static', filename='summary.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <a href="{{ url_for('view_dashboard') }}" class="submit-button">Go to Dashboard</a>
+</div>
